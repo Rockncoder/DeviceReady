@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title></title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script type="text/javascript">
+	        var app = {
+			    // Application Constructor
+			    initialize: function() {
+			        this.bindEvents();
+			    },
+			    // Bind Event Listeners
+			    //
+			    // Bind any events that are required on startup. Common events are:
+			    // 'load', 'deviceready', 'offline', and 'online'.
+			    bindEvents: function() {
+			        document.addEventListener('deviceready', this.onDeviceReady, false);
+			    },
+			    // deviceready Event Handler
+			    //
+			    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+			    // function, we must explicity call 'app.receivedEvent(...);'
+			    onDeviceReady: function() {
+			        app.receivedEvent('deviceready');
+			        // move to another page
+			        document.location.href = 'home.html';
+			    },
+			    // Update DOM on a Received Event
+			    receivedEvent: function(id) {
+			        var parentElement = document.getElementById(id),
+				        listeningElement = parentElement.querySelector('.listening'),
+				        receivedElement = parentElement.querySelector('.received');
+			
+			        listeningElement.setAttribute('style', 'display:none;');
+			        receivedElement.setAttribute('style', 'display:block;');
+			
+			        console.log('Received Event: ' + id);
+			    }
+			};
+            app.initialize();
+        </script>
+    </body>
+</html>

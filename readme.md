@@ -1,0 +1,1 @@
+A simple way to solve the PhoneGap / jQuery Mobile deviceready sync issue.
